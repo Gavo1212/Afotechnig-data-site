@@ -1,133 +1,150 @@
-# Afotechnig-data-site
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AFOTECHNIG | Data Sales</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AFOTECHNIG – Fast & Affordable Data</title>
   <style>
-    body {
-      background-color: #fff;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #333;
+    /* Basic Resets */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body, html { height:100%; font-family:Arial,sans-serif; color:#333; }
+    a { text-decoration:none; color:inherit; }
+
+    /* Hero Section */
+    .hero {
+      position:relative; height:100vh; width:100%; overflow:hidden;
+      background:#fff;
+    }
+    .slides {
+      position:absolute; width:400%; height:100%; display:flex;
+      animation: slideBg 20s infinite;
+    }
+    .slide {
+      flex:1; background-size:cover; background-position:center;
+    }
+    .slide1 { background-image:url('https://via.placeholder.com/1600x900?text=Fast+Data'); }
+    .slide2 { background-image:url('https://via.placeholder.com/1600x900?text=Secure+Payment'); }
+    .slide3 { background-image:url('https://via.placeholder.com/1600x900?text=Trusted+Service'); }
+    .slide4 { background-image:url('https://via.placeholder.com/1600x900?text=24/7+Support'); }
+
+    @keyframes slideBg {
+      0%,20%{transform:translateX(0);}
+      25%,45%{transform:translateX(-100%);}
+      50%,70%{transform:translateX(-200%);}
+      75%,95%{transform:translateX(-300%);}
+      100%{transform:translateX(0);}
     }
 
-    header {
-      background: #4CAF50;
-      padding: 20px;
-      text-align: center;
-      color: white;
+    .overlay {
+      position:absolute; top:0; left:0; width:100%; height:100%;
+      background:rgba(255,255,255,0.6);
+      display:flex; flex-direction:column;
+      justify-content:center; align-items:center; text-align:center;
+      backdrop-filter:blur(2px); padding:0 20px;
     }
 
-    .brand {
-      font-size: 30px;
-      font-weight: bold;
+    .overlay h1 {
+      font-size:3rem; color:#4CAF50; margin-bottom:10px;
+      animation: fadeInDown 1s ease-out;
+    }
+    .overlay p {
+      font-size:1.2rem; max-width:600px;
+      animation: fadeInUp 1s ease-out;
     }
 
-    .brand span {
-      color: #4CAF50;
-      background: white;
-      padding: 3px 6px;
-      border-radius: 4px;
+    .btn-group {
+      margin-top:20px; display:flex; gap:15px;
+      animation: zoomIn 1s ease-out;
+    }
+    .btn {
+      padding:15px 30px; border:none; border-radius:30px;
+      font-size:1rem; font-weight:bold; cursor:pointer;
+      background:#4CAF50; color:white;
+      transition:background 0.3s;
+    }
+    .btn:hover { background:#388E3C; }
+
+    /* Sign Up/In Forms */
+    .form-container {
+      margin-top:40px; background:rgba(255,255,255,0.9);
+      padding:20px; border-radius:10px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      display:flex; gap:20px; flex-wrap:wrap;
+      justify-content:center;
+      animation: fadeIn 1s ease-out;
+    }
+    .form-container form {
+      display:flex; flex-direction:column; gap:10px;
+      min-width:250px; width:300px;
+    }
+    .form-container input {
+      padding:10px; font-size:1rem;
+      border:1px solid #ccc; border-radius:5px;
+      outline:none; width:100%;
     }
 
-    .container {
-      max-width: 500px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #f9f9f9;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #eee;
-    }
-
-    h2 {
-      color: #4CAF50;
-      text-align: center;
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-
-    select, input {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #4CAF50;
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #45a049;
-    }
-
+    /* Footer */
     footer {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 14px;
-      color: #777;
+      position:absolute; bottom:10px; width:100%;
+      text-align:center; color:#555; font-size:0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity:0; transform:translateY(-20px); }
+      to { opacity:1; transform:none; }
+    }
+    @keyframes fadeInUp {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:none; }
+    }
+    @keyframes zoomIn {
+      from { opacity:0; transform:scale(0.5); }
+      to { opacity:1; transform:none; }
+    }
+    @keyframes fadeIn {
+      from { opacity:0; }
+      to { opacity:1; }
     }
   </style>
 </head>
 <body>
+  <section class="hero">
+    <div class="slides">
+      <div class="slide slide1"></div>
+      <div class="slide slide2"></div>
+      <div class="slide slide3"></div>
+      <div class="slide slide4"></div>
+    </div>
+    <div class="overlay">
+      <h1><span>AFO</span>TECHNIG</h1>
+      <p>Fast • Secure • Affordable Data Bundles for MTN, Glo, Airtel & 9mobile — powered by professional service in 2025!</p>
+      <div class="btn-group">
+        <button class="btn" onclick="scrollToForm()">Sign Up</button>
+        <button class="btn" onclick="scrollToForm()">Sign In</button>
+      </div>
+      <div id="formAnchor" class="form-container">
+        <!-- Sign Up Form -->
+        <form id="signUp">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <button class="btn" type="submit">Create Account</button>
+        </form>
+        <!-- Sign In Form -->
+        <form id="signIn">
+          <input type="email" placeholder="Email Address" required>
+          <input type="password" placeholder="Password" required>
+          <button class="btn" type="submit">Log In</button>
+        </form>
+      </div>
+      <footer>© 2025 AFOTECHNIG</footer>
+    </div>
+  </section>
 
-  <header>
-    <div class="brand"><span>AFO</span>TECHNIG</div>
-    <p>Affordable Data | Fast Delivery | Trusted</p>
-  </header>
-
-  <div class="container">
-    <h2>Buy Data</h2>
-
-    <form>
-      <label for="network">Choose Network</label>
-      <select id="network" required>
-        <option value="">-- Select Network --</option>
-        <option value="MTN">MTN</option>
-        <option value="Airtel">Airtel</option>
-        <option value="Glo">Glo</option>
-        <option value="9mobile">9mobile</option>
-      </select>
-
-      <label for="plan">Choose Plan</label>
-      <select id="plan" required>
-        <option value="">-- Select Data Plan --</option>
-        <option value="500MB">500MB – ₦100</option>
-        <option value="1GB">1GB – ₦250</option>
-        <option value="2GB">2GB – ₦450</option>
-        <option value="5GB">5GB – ₦1,000</option>
-      </select>
-
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" placeholder="Enter phone number" required>
-
-      <label for="pin">Transaction PIN</label>
-      <input type="password" id="pin" placeholder="Enter your 4-digit PIN" required>
-
-      <button type="submit">Buy Data</button>
-    </form>
-  </div>
-
-  <footer>
-    &copy; 2025 AFOTECHNIG. All rights reserved.
-  </footer>
-
+  <script>
+    function scrollToForm(){
+      document.getElementById('formAnchor').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
